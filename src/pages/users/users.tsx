@@ -1,21 +1,22 @@
 import React, {FC, useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {getUsers} from "../../services/getUsers";
+import {Table} from "antd";
+import {userTableConstants} from "../../helpers/tableConstants/tableConstants";
 
 const Users: FC = () => {
+    const dispatch = useAppDispatch()
     useEffect(() => {
         dispatch(getUsers())
 
     }, [])
-    const dispatch = useAppDispatch()
-    const {users} = useAppSelector(state => state.userReducer)
+    const {users, error, isLoading} = useAppSelector(state => state.userReducer)
+
 
 
     return (
         <div>
-            {users.map(user=>
-                <div>Name: {user.name}</div>
-            )}
+            <Table  dataSource={users} columns={userTableConstants} />
         </div>
     );
 };

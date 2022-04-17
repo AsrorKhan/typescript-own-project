@@ -1,5 +1,10 @@
 import {combineReducers} from "@reduxjs/toolkit";
-import userReducer from "./userReducers";
-export  const rootReducer = combineReducers({
-    userReducer
+import userReducer from "./user";
+import todosReducer from './todos'
+import postReducer from './posts'
+
+export const rootReducer = combineReducers({
+    userReducer,
+    todosReducer,
+    postReducer
 })

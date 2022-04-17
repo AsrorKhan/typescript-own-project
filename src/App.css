@@ -3,9 +3,9 @@
 .App{
   height: 100vh;
 }
-.ant-layout{
-  height: 100vh !important;
-}
+/*.ant-layout{*/
+/*  height: 100vh !important;*/
+/*}*/
 
 #components-layout-demo-custom-trigger .trigger {
   padding: 0 24px;
