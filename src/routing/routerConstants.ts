@@ -1,5 +1,6 @@
 export enum RouterConstants {
-    POSTS = 'posts',
-    USERS = 'users',
-    TODOS = 'todos'
+    POSTS_ROUTE = 'posts',
+    USERS_ROUTE = 'users',
+    TODOS_ROUTE = 'todos',
+    LOGIN_ROUTE = 'login'
 }

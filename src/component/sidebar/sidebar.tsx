@@ -1,18 +1,10 @@
 import React from "react";
 
-import { Layout, Menu } from 'antd';
-import {
-    MenuUnfoldOutlined,
-    MenuFoldOutlined,
-    UserOutlined,
-    VideoCameraOutlined,
-    UploadOutlined,
-} from '@ant-design/icons';
-import exp from "constants";
+import {Layout, Menu} from 'antd';
+import {LeftOutlined, RightOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined,} from '@ant-design/icons';
 import {Link} from "react-router-dom";
 import AppRouter from "../../routing/appRouter";
-
-const { Header, Sider, Content } = Layout;
+const {Header, Sider, Content} = Layout;
 
 class Sidebar extends React.Component {
     state = {
@@ -29,36 +21,35 @@ class Sidebar extends React.Component {
         return (
             <Layout>
                 <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-                    <div className="logo" />
+                    <div className="logo"/>
                     <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-                        <Menu.Item key="1" icon={<UserOutlined />}>
+                        <Menu.Item key="1" icon={<UserOutlined/>}>
                             <Link to='users'>Users</Link>
                         </Menu.Item>
-                        <Menu.Item key="2" icon={<VideoCameraOutlined />}>
+                        <Menu.Item key="2" icon={<VideoCameraOutlined/>}>
                             <Link to='todos'>Todos</Link>
                         </Menu.Item>
-                        <Menu.Item key="3" icon={<UploadOutlined />}>
+                        <Menu.Item key="3" icon={<UploadOutlined/>}>
                             <Link to='posts'>Posts</Link>
                         </Menu.Item>
                     </Menu>
                 </Sider>
                 <Layout className="site-layout">
-                    <Header className="site-layout-background" style={{ padding: 0 }}>
-                        {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-                            className: 'trigger',
-                            onClick: this.toggle,
-                        })}
+                    <Header className="site-layout-background" style={{padding: 0}}>
+                        <div className='trigger sidebar-close-icon' onClick={this.toggle} style={{
+                            width: '30px',
+                            height: '100%',
+                            borderRadius: ' 0 10px 10px 0',
+                            backgroundColor: '#001428',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            cursor: 'pointer',
+                            color: '#fff'
+                        }}>
+                            {this.state.collapsed ? <RightOutlined/> : <LeftOutlined/>}
+                        </div>
                     </Header>
-                    <Content
-                        className="site-layout-background"
-                        style={{
-                            margin: '24px 16px',
-                            padding: 24,
-                            minHeight: 280,
-                        }}
-                    >
-                        <AppRouter/>
-                    </Content>
                 </Layout>
             </Layout>
         );

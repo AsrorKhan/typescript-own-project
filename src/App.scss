@@ -1,12 +1,12 @@
 @import '~antd/dist/antd.css';
 
 .App{
-  height: 100vh;
+  min-height: 100vh !important;
+  .ant-layout,
+  .ant-layout-has-sider{
+    height: 100vh;
+  }
 }
-/*.ant-layout{*/
-/*  height: 100vh !important;*/
-/*}*/
-
 #components-layout-demo-custom-trigger .trigger {
   padding: 0 24px;
   font-size: 18px;
