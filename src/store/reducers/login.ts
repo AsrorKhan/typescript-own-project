@@ -1,16 +1,18 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 
-interface IUser {
+export interface ILoginUser {
+    userName: string,
     access_token: string;
     refresh_token: string;
-    scope: [];
+    scope: [] | string;
     token_type: string;
     isAuth: boolean
 }
 
 
-const initialState: IUser = {
+const initialState: ILoginUser = {
+    userName: '',
     access_token: '',
     refresh_token: '',
     scope: [],
@@ -18,18 +20,19 @@ const initialState: IUser = {
     isAuth: false
 }
 
-const userSlice = createSlice({
+export const createdUserSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        setUser(state, action){
-            state.access_token = action.payload;
-            state.refresh_token = action.payload;
-            state.scope = action.payload;
-            state.token_type = action.payload;
-            state.isAuth = action.payload
+        createUser(state, action: PayloadAction<ILoginUser>){
+            state.userName = action.payload.userName;
+            state.access_token = action.payload.access_token;
+            state.refresh_token = action.payload.refresh_token;
+            state.scope = action.payload.scope;
+            state.token_type = action.payload.token_type;
+            state.isAuth = action.payload.isAuth
         }
     }
 })
 
-export default userSlice.reducer;
+export default createdUserSlice.reducer;

@@ -7,7 +7,7 @@ import {postTableConstants} from "../../helpers/tableConstants/tableConstants";
 const Posts: FC = () => {
     const dispatch = useAppDispatch();
     useEffect(() => {
-dispatch(getPosts())
+    dispatch(getPosts())
 
     }, [])
 

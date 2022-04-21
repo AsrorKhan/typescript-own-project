@@ -1,22 +1,28 @@
 import React from 'react';
 import './App.scss';
-import Sidebar from "./component/sidebar/sidebar";
-import AppRouter from "./routing/appRouter";
 import {Layout} from "antd";
 import {useAppSelector} from "./hooks/redux";
+import AppRouter from "./routing/appRouter";
 
 function App() {
-    const user = useAppSelector(state => state.userLoginReducer);
+    // const [userLoginData, setLoginData] = useState<ILoginUser>({
+    //     userName: '',
+    //     isAuth: false,
+    //     scope: [],
+    //     token_type: '',
+    //     refresh_token: '',
+    //     access_token: ''
+    // })
+    // useEffect(() => {
+    //     let userData = localStorage.getItem('login_data')
+    //     let loginData = JSON.parse(userData!)
+    //     setLoginData(loginData)
+    // }, []);
 
     return (
-        <div className="App">
-            <Layout>
-                {user.isAuth && <Sidebar/>}
-                <Layout.Content>
-                    <AppRouter/>
-                </Layout.Content>
-            </Layout>
-        </div>
+        <Layout className="app">
+            <AppRouter />
+        </Layout>
     );
 }
 

@@ -1,12 +1,25 @@
 @import '~antd/dist/antd.css';
 
-.App{
-  min-height: 100vh !important;
+.app {
+  min-height: 100vh;
+
   .ant-layout,
-  .ant-layout-has-sider{
+  .ant-layout-has-sider {
     height: 100vh;
   }
 }
+
+.ant-table-thead > tr > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+  background-color: #ffffff;
+}
+
+.ant-table .ant-table-container .ant-table-content .ant-table-thead {
+  .ant-table-cell {
+    background: #001428;
+    color: #ffffff;
+  }
+}
+
 #components-layout-demo-custom-trigger .trigger {
   padding: 0 24px;
   font-size: 18px;
